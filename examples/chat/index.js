@@ -15,13 +15,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Chatroom
 
-let numUsers = 0;
+let numUsers = 0;　
+let user_id = 0
 
 io.on('connection', (socket) => {
   let addedUser = false;
+  user_id++
+
+  socket.on('const', (data) => {
+    // we tell the client to execute 'new message'
+    const send_data = data
+  });
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', (data) => {
+    console.log(`user_${user_id}`)
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
       username: socket.username,

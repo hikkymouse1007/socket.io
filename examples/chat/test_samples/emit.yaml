@@ -3,12 +3,10 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 config:
-  target: "http://${AWS_IP}:3000"
+  target: "http://localhost:3000"
   phases:
     - duration: 10
       arrivalRate: 1
-    - duration: 10
-      arrivalRate: 5
   variables:
     greeting: ["hello", "goedemorgen", "добрый день", "guten tag", "bonjour", "hola"]
   processor: "./functions.js"
